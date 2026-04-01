@@ -11,35 +11,28 @@ const Hero = () => {
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="animate-fade-up">
-            <p className="text-sm font-semibold tracking-widest uppercase text-secondary mb-4">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight text-foreground mb-3">
+              {SITE_CONFIG.name}
+            </h1>
+            <p className="text-sm font-semibold tracking-widest uppercase text-secondary mb-6">
               {SITE_CONFIG.title}
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight text-foreground mb-6">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold leading-snug text-foreground mb-6">
               Вы заслуживаете жизни,{" "}
               <span className="text-gradient">в которой не нужно выживать</span>
-            </h1>
+            </p>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
               Помогаю справиться с последствиями травмы, тревогой, внутренним напряжением
               и вернуть ощущение опоры — бережно и в вашем темпе.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href={SITE_CONFIG.telegramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:brightness-105 hover:shadow-lg transition-all"
-              >
-                Записаться на консультацию
-              </a>
-              <a
-                href={SITE_CONFIG.telegramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-secondary text-secondary-foreground font-semibold text-base hover:brightness-110 hover:shadow-lg transition-all"
-              >
-                Связаться в Telegram
-              </a>
-            </div>
+            <a
+              href={SITE_CONFIG.telegramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:brightness-105 hover:shadow-lg transition-all"
+            >
+              Записаться на консультацию
+            </a>
           </div>
 
           <div className="relative animate-fade-in flex justify-center lg:justify-end">
