@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { RevealSection } from "@/hooks/useScrollReveal";
 
 const ISSUES = [
@@ -44,12 +44,59 @@ const ISSUES = [
   },
 ];
 
+const NotePopup = ({
+  issue,
+  onClose,
+}: {
+  issue: (typeof ISSUES)[0];
+  onClose: () => void;
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        onClose();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [onClose]);
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-foreground/20 backdrop-blur-sm animate-note-overlay">
+      <div
+        ref={ref}
+        className="relative w-full max-w-sm bg-[hsl(var(--warm-white))] rounded-lg p-6 shadow-2xl border border-border animate-note-appear origin-center"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(transparent, transparent 27px, hsl(var(--border) / 0.5) 28px)",
+          backgroundSize: "100% 28px",
+          backgroundPositionY: "52px",
+        }}
+      >
+        <div className="absolute top-0 left-0 w-full h-1.5 bg-primary/40 rounded-t-lg" />
+        <div className="absolute top-0 left-8 w-px h-full bg-destructive/15" />
+        <h4 className="font-serif font-bold text-foreground text-base mb-3 leading-snug pl-4">
+          {issue.title}
+        </h4>
+        <p className="text-sm text-muted-foreground leading-relaxed pl-4">
+          {issue.description}
+        </p>
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-4 text-muted-foreground hover:text-foreground text-lg transition-colors leading-none"
+          aria-label="Закрыть"
+        >
+          ×
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const Issues = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const handleToggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
 
   return (
     <section id="issues" className="py-20 md:py-28 relative overflow-hidden">
@@ -63,56 +110,27 @@ const Issues = () => {
             Если вы узнаёте себя хотя бы в одном из этих пунктов — я могу помочь
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {ISSUES.map((issue, i) => (
-            <div key={i} className="relative">
-              <button
-                onClick={() => handleToggle(i)}
-                className={`w-full bg-card rounded-xl p-5 border border-border card-hover flex items-center justify-center text-center cursor-pointer transition-all ${
-                  openIndex === i ? "ring-2 ring-ring shadow-lg" : ""
-                }`}
-              >
-                <span className="text-sm font-medium text-foreground leading-snug">
-                  {issue.title}
-                </span>
-              </button>
-
-              {openIndex === i && (
-                <div
-                  className="absolute z-20 top-full mt-2 left-1/2 -translate-x-1/2 w-72 sm:w-80 animate-fade-up"
-                >
-                  <div
-                    className="relative bg-[hsl(var(--warm-white))] rounded-lg p-5 shadow-xl border border-border"
-                    style={{
-                      backgroundImage:
-                        "repeating-linear-gradient(transparent, transparent 27px, hsl(var(--border)) 28px)",
-                      backgroundSize: "100% 28px",
-                    }}
-                  >
-                    <div className="absolute top-0 left-0 w-full h-1.5 bg-primary/30 rounded-t-lg" />
-                    <h4 className="font-serif font-bold text-foreground text-sm mb-2 leading-snug">
-                      {issue.title}
-                    </h4>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      {issue.description}
-                    </p>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setOpenIndex(null);
-                      }}
-                      className="absolute top-2 right-3 text-muted-foreground hover:text-foreground text-sm transition-colors"
-                      aria-label="Закрыть"
-                    >
-                      ×
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
+            <button
+              key={i}
+              onClick={() => setOpenIndex(i)}
+              className="bg-card rounded-xl p-5 border border-border card-hover flex items-center justify-center text-center cursor-pointer"
+            >
+              <span className="text-sm font-medium text-foreground leading-snug">
+                {issue.title}
+              </span>
+            </button>
           ))}
         </div>
       </RevealSection>
+
+      {openIndex !== null && (
+        <NotePopup
+          issue={ISSUES[openIndex]}
+          onClose={() => setOpenIndex(null)}
+        />
+      )}
     </section>
   );
 };
