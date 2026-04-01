@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SITE_CONFIG } from "@/lib/config";
+import { RevealSection } from "@/hooks/useScrollReveal";
 import { RevealSection } from "@/hooks/useScrollReveal";
 
 const Contact = () => {
