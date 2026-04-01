@@ -95,6 +95,41 @@ const NotePopup = ({
   );
 };
 
+const IssueCard = ({
+  issue,
+  index,
+  onClick,
+}: {
+  issue: (typeof ISSUES)[0];
+  index: number;
+  onClick: () => void;
+}) => {
+  const cardRef = useRef<HTMLButtonElement>(null);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    e.currentTarget.style.setProperty("--glow-x", `${x}px`);
+    e.currentTarget.style.setProperty("--glow-y", `${y}px`);
+  }, []);
+
+  return (
+    <button
+      ref={cardRef}
+      onClick={onClick}
+      onMouseMove={handleMouseMove}
+      className="issue-card group relative bg-card rounded-xl p-5 border border-border flex items-center justify-center text-center cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/40"
+      style={{ animationDelay: `${index * 0.08}s` }}
+    >
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none issue-glow" />
+      <span className="relative z-10 text-sm font-semibold text-foreground leading-snug tracking-tight">
+        {issue.title}
+      </span>
+    </button>
+  );
+};
+
 const Issues = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
