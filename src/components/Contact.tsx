@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { RevealSection } from "@/hooks/useScrollReveal";
-import { RevealSection } from "@/hooks/useScrollReveal";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", contact: "", message: "" });
