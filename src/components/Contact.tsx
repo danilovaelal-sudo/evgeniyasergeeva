@@ -30,35 +30,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 max-w-4xl mx-auto">
-          <div className="flex flex-col gap-5">
-            <a
-              href={SITE_CONFIG.telegramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:brightness-105 hover:shadow-lg transition-all"
-            >
-              Записаться на консультацию
-            </a>
-            <a
-              href={SITE_CONFIG.telegramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-secondary text-secondary-foreground font-semibold text-base hover:brightness-110 hover:shadow-lg transition-all"
-            >
-              Написать в Telegram
-            </a>
-
-            <div className="mt-4 space-y-3 text-sm text-muted-foreground">
-              <a href={`tel:${SITE_CONFIG.phoneClean}`} className="block hover:text-foreground transition-colors">
-                {SITE_CONFIG.phone}
-              </a>
-              <a href={`mailto:${SITE_CONFIG.email}`} className="block hover:text-foreground transition-colors">
-                {SITE_CONFIG.email}
-              </a>
-            </div>
-          </div>
-
+        <div className="max-w-lg mx-auto">
           <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
             {submitted ? (
               <div className="text-center py-8">
