@@ -25,24 +25,14 @@ const Hero = () => {
               Помогаю справиться с последствиями травмы, тревогой, внутренним напряжением
               и вернуть ощущение опоры — бережно и в вашем темпе.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href={SITE_CONFIG.telegramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:brightness-105 hover:shadow-lg transition-all"
-              >
-                Записаться на консультацию
-              </a>
-              <a
-                href={SITE_CONFIG.telegramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-secondary text-secondary-foreground font-semibold text-base hover:brightness-110 hover:shadow-lg transition-all"
-              >
-                Связаться в Telegram
-              </a>
-            </div>
+            <a
+              href={SITE_CONFIG.telegramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:brightness-105 hover:shadow-lg transition-all"
+            >
+              Записаться на консультацию
+            </a>
           </div>
 
           <div className="relative animate-fade-in flex justify-center lg:justify-end">
