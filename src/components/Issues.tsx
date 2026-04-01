@@ -117,7 +117,7 @@ const Issues = () => {
               onClick={() => setOpenIndex(i)}
               className="bg-card rounded-xl p-5 border border-border card-hover flex items-center justify-center text-center cursor-pointer"
             >
-              <span className="text-sm font-medium text-foreground leading-snug">
+              <span className="text-sm font-semibold text-foreground leading-snug tracking-tight">
                 {issue.title}
               </span>
             </button>
