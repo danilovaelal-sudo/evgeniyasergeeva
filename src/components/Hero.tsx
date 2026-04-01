@@ -11,16 +11,21 @@ const Hero = () => {
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="animate-fade-up">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight text-foreground mb-3 animate-name-reveal">
-              {SITE_CONFIG.name.split("").map((char, i) => (
-                <span
-                  key={i}
-                  className="inline-block animate-letter-pop"
-                  style={{ animationDelay: `${i * 0.05}s` }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </span>
-              ))}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight text-foreground mb-3">
+              <span className="block">
+                {"Евгения".split("").map((char, i) => (
+                  <span key={i} className="inline-block animate-letter-pop" style={{ animationDelay: `${i * 0.05}s` }}>
+                    {char}
+                  </span>
+                ))}
+              </span>
+              <span className="block">
+                {"Сергеева".split("").map((char, i) => (
+                  <span key={i} className="inline-block animate-letter-pop" style={{ animationDelay: `${(i + 8) * 0.05}s` }}>
+                    {char}
+                  </span>
+                ))}
+              </span>
             </h1>
             <p className="text-sm font-semibold tracking-widest uppercase text-secondary mb-6">
               {SITE_CONFIG.title}

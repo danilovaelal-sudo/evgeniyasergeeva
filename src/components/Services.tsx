@@ -44,13 +44,13 @@ const Services = () => {
               key={i}
               className="bg-card rounded-2xl border border-border p-6 md:p-8 flex flex-col card-hover"
             >
-              <h3 className="font-serif text-xl font-bold text-foreground mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground mb-4">{s.desc}</p>
-              <p className="text-xs font-medium text-secondary mb-3">{s.forWhom}</p>
-              <ul className="space-y-1 mb-6">
+              <h3 className="font-serif text-xl font-bold text-foreground mb-3">{s.title}</h3>
+              <p className="text-sm text-foreground/80 leading-relaxed mb-4">{s.desc}</p>
+              <p className="text-sm font-medium text-secondary mb-4">{s.forWhom}</p>
+              <ul className="space-y-2 mb-6">
                 {s.benefits.map((b, j) => (
-                  <li key={j} className="text-sm text-muted-foreground flex items-start gap-2">
-                    <span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                  <li key={j} className="text-sm text-foreground/70 leading-relaxed flex items-start gap-2">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                     {b}
                   </li>
                 ))}
