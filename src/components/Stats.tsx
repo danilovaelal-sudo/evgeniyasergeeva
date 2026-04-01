@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { RevealSection } from "@/hooks/useScrollReveal";
 
 const STATS = [
-  { value: 7, suffix: "+", label: "лет практики" },
+  { value: 10, suffix: "+", label: "лет практики" },
   { value: 2000, suffix: "+", label: "проведённых сессий" },
   { value: 500, suffix: "+", label: "клиентов" },
   { value: 94, suffix: "%", label: "продолжают терапию" },

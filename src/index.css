@@ -97,6 +97,23 @@
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
   }
 
+  .issue-card {
+    animation: cardPulse 2.5s ease-in-out infinite;
+  }
+
+  .issue-card:nth-child(odd) {
+    animation-delay: 0.3s;
+  }
+
+  .issue-glow {
+    background: radial-gradient(
+      120px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+      hsl(var(--primary) / 0.4) 0%,
+      hsl(var(--secondary) / 0.15) 40%,
+      transparent 70%
+    );
+  }
+
   .animate-fade-up {
     animation: fadeUp 0.6s ease-out both;
   }
@@ -166,4 +183,13 @@
 
 .animate-note-overlay {
   animation: noteOverlay 0.2s ease-out both;
+}
+
+@keyframes cardPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0);
+  }
+  50% {
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.15);
+  }
 }
