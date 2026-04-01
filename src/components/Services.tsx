@@ -1,10 +1,8 @@
 import { SITE_CONFIG } from "@/lib/config";
 import { RevealSection } from "@/hooks/useScrollReveal";
-import { User, Package, Users } from "lucide-react";
 
 const SERVICES = [
   {
-    icon: User,
     title: "Индивидуальная сессия",
     desc: "Личная встреча в видеоформате, где мы работаем с вашим запросом в безопасном темпе.",
     forWhom: "Для тех, кому нужна персональная поддержка и внимание к своей ситуации.",
@@ -12,7 +10,6 @@ const SERVICES = [
     price: SITE_CONFIG.prices.session,
   },
   {
-    icon: Package,
     title: "Пакет сессий",
     desc: "Серия встреч для глубокой последовательной работы с вашим запросом.",
     forWhom: "Для тех, кто готов к системному процессу и хочет устойчивых изменений.",
@@ -20,7 +17,6 @@ const SERVICES = [
     price: SITE_CONFIG.prices.package,
   },
   {
-    icon: Users,
     title: "Групповая терапия",
     desc: "Терапевтическая группа, где участники получают поддержку и опыт взаимодействия в безопасной среде.",
     forWhom: "Для тех, кто хочет работать в группе и получать поддержку от других участников.",
@@ -48,9 +44,6 @@ const Services = () => {
               key={i}
               className="bg-card rounded-2xl border border-border p-6 md:p-8 flex flex-col card-hover"
             >
-              <div className="w-12 h-12 rounded-xl bg-yellow-soft flex items-center justify-center mb-5">
-                <s.icon size={22} className="text-secondary" />
-              </div>
               <h3 className="font-serif text-xl font-bold text-foreground mb-2">{s.title}</h3>
               <p className="text-sm text-muted-foreground mb-4">{s.desc}</p>
               <p className="text-xs font-medium text-secondary mb-3">{s.forWhom}</p>
@@ -63,7 +56,7 @@ const Services = () => {
                 ))}
               </ul>
               <div className="mt-auto">
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-base font-semibold text-foreground mb-4">
                   {s.price ? s.price : "Стоимость уточняется при записи"}
                 </p>
                 <a

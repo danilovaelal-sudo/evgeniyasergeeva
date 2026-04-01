@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { SITE_CONFIG } from "@/lib/config";
-import { Menu, X } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "Обо мне", href: "#about" },
@@ -33,7 +32,6 @@ const Navbar = () => {
           {SITE_CONFIG.name}
         </a>
 
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-6">
           {NAV_ITEMS.map((item) => (
             <a
@@ -54,17 +52,15 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden p-2 text-foreground"
           aria-label="Меню"
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          <span className="text-2xl">{open ? "✕" : "☰"}</span>
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-card/95 backdrop-blur-md border-t border-border animate-fade-in">
           <div className="container py-4 flex flex-col gap-3">

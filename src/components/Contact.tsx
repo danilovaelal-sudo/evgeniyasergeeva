@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { SITE_CONFIG } from "@/lib/config";
 import { RevealSection } from "@/hooks/useScrollReveal";
-import { Send, Calendar, Phone, Mail } from "lucide-react";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", contact: "", message: "" });
@@ -32,7 +31,6 @@ const Contact = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10 max-w-4xl mx-auto">
-          {/* CTA side */}
           <div className="flex flex-col gap-5">
             <a
               href={SITE_CONFIG.telegramUrl}
@@ -40,7 +38,6 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:brightness-105 hover:shadow-lg transition-all"
             >
-              <Calendar size={20} />
               Записаться на консультацию
             </a>
             <a
@@ -49,27 +46,22 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-secondary text-secondary-foreground font-semibold text-base hover:brightness-110 hover:shadow-lg transition-all"
             >
-              <Send size={20} />
               Написать в Telegram
             </a>
 
             <div className="mt-4 space-y-3 text-sm text-muted-foreground">
-              <a href={`tel:${SITE_CONFIG.phoneClean}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
-                <Phone size={16} /> {SITE_CONFIG.phone}
+              <a href={`tel:${SITE_CONFIG.phoneClean}`} className="block hover:text-foreground transition-colors">
+                {SITE_CONFIG.phone}
               </a>
-              <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
-                <Mail size={16} /> {SITE_CONFIG.email}
+              <a href={`mailto:${SITE_CONFIG.email}`} className="block hover:text-foreground transition-colors">
+                {SITE_CONFIG.email}
               </a>
             </div>
           </div>
 
-          {/* Form */}
           <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
             {submitted ? (
               <div className="text-center py-8">
-                <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                  <Send size={28} className="text-secondary" />
-                </div>
                 <h3 className="font-serif text-xl font-bold text-foreground mb-2">Заявка отправлена</h3>
                 <p className="text-muted-foreground text-sm">
                   Спасибо! Для быстрого ответа напишите мне в Telegram.

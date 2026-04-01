@@ -1,29 +1,23 @@
 import { RevealSection } from "@/hooks/useScrollReveal";
-import { Heart, MessageCircle, Sparkles, Activity, Search } from "lucide-react";
 
 const METHODS = [
   {
-    icon: Heart,
     title: "Травма-ориентированный подход",
     desc: "Работа с последствиями травматического опыта с учётом особенностей нервной системы и темпа клиента.",
   },
   {
-    icon: MessageCircle,
     title: "Бережная разговорная терапия",
     desc: "Пространство, где можно безопасно говорить о том, что важно — без оценки и давления.",
   },
   {
-    icon: Sparkles,
     title: "Техники стабилизации",
     desc: "Методы саморегуляции, помогающие вернуть ощущение контроля и внутреннего равновесия.",
   },
   {
-    icon: Activity,
     title: "Работа с эмоциями и телом",
     desc: "Внимание к телесным реакциям и эмоциональным процессам для более глубокого восстановления.",
   },
   {
-    icon: Search,
     title: "Исследование паттернов",
     desc: "Осознание привычных моделей мышления и поведения, которые поддерживают страдание.",
   },
@@ -47,9 +41,6 @@ const Methods = () => {
               key={i}
               className="rounded-xl border border-border p-6 card-hover bg-background"
             >
-              <div className="w-11 h-11 rounded-lg bg-blue-soft flex items-center justify-center mb-4">
-                <m.icon size={20} className="text-secondary" />
-              </div>
               <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
                 {m.title}
               </h3>
