@@ -112,15 +112,7 @@ const Issues = () => {
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {ISSUES.map((issue, i) => (
-            <button
-              key={i}
-              onClick={() => setOpenIndex(i)}
-              className="bg-card rounded-xl p-5 border border-border card-hover flex items-center justify-center text-center cursor-pointer"
-            >
-              <span className="text-sm font-semibold text-foreground leading-snug tracking-tight">
-                {issue.title}
-              </span>
-            </button>
+            <IssueCard key={i} issue={issue} index={i} onClick={() => setOpenIndex(i)} />
           ))}
         </div>
       </RevealSection>
