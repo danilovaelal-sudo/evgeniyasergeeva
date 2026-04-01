@@ -1,7 +1,5 @@
 import { RevealSection } from "@/hooks/useScrollReveal";
-import { Star } from "lucide-react";
 
-// PLACEHOLDER ОТЗЫВЫ — замените на реальные
 const REVIEWS = [
   {
     text: "Я долго не решалась обратиться к психологу. С Евгенией я впервые почувствовала, что меня слышат и не осуждают. Это стало началом важных изменений.",
@@ -39,11 +37,6 @@ const Testimonials = () => {
               key={i}
               className="bg-card rounded-2xl border border-border p-6 md:p-8 card-hover"
             >
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} size={16} className="fill-primary text-primary" />
-                ))}
-              </div>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6 italic">
                 «{r.text}»
               </p>

@@ -1,20 +1,16 @@
 import { RevealSection } from "@/hooks/useScrollReveal";
-import {
-  ShieldAlert, Brain, Flame, HeartCrack, Waypoints,
-  Users, ShieldCheck, Frown, Clock, HelpCircle,
-} from "lucide-react";
 
 const ISSUES = [
-  { icon: ShieldAlert, title: "Последствия психологической травмы" },
-  { icon: Brain, title: "Тревога и внутреннее напряжение" },
-  { icon: Flame, title: "Панические реакции" },
-  { icon: HeartCrack, title: "Эмоциональное выгорание" },
-  { icon: Waypoints, title: "Сложные жизненные кризисы" },
-  { icon: Users, title: "Трудности в отношениях" },
-  { icon: ShieldCheck, title: "Проблемы с границами" },
-  { icon: Frown, title: "Чувство вины, стыда, беспомощности" },
-  { icon: Clock, title: "Травматичный опыт прошлого" },
-  { icon: HelpCircle, title: "Потеря опоры, ощущение «я не справляюсь»" },
+  "Последствия психологической травмы",
+  "Тревога и внутреннее напряжение",
+  "Панические реакции",
+  "Эмоциональное выгорание",
+  "Сложные жизненные кризисы",
+  "Трудности в отношениях",
+  "Проблемы с границами",
+  "Чувство вины, стыда, беспомощности",
+  "Травматичный опыт прошлого",
+  "Потеря опоры, ощущение «я не справляюсь»",
 ];
 
 const Issues = () => {
@@ -31,16 +27,13 @@ const Issues = () => {
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-          {ISSUES.map((item, i) => (
+          {ISSUES.map((title, i) => (
             <div
               key={i}
-              className="bg-card rounded-xl p-5 border border-border card-hover flex flex-col items-center text-center gap-3"
+              className="bg-card rounded-xl p-5 border border-border card-hover flex items-center justify-center text-center"
             >
-              <div className="w-12 h-12 rounded-full bg-yellow-soft flex items-center justify-center">
-                <item.icon size={22} className="text-secondary" />
-              </div>
               <span className="text-sm font-medium text-foreground leading-snug">
-                {item.title}
+                {title}
               </span>
             </div>
           ))}

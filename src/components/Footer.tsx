@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { SITE_CONFIG } from "@/lib/config";
-import { Send, Phone, Mail } from "lucide-react";
 
 const LegalModal = ({
   open,
@@ -43,19 +42,19 @@ const Footer = () => {
               <p className="text-sm text-background/60">{SITE_CONFIG.title}</p>
             </div>
             <div className="space-y-2 text-sm">
-              <a href={`tel:${SITE_CONFIG.phoneClean}`} className="flex items-center gap-2 hover:text-background transition-colors">
-                <Phone size={14} /> {SITE_CONFIG.phone}
+              <a href={`tel:${SITE_CONFIG.phoneClean}`} className="block hover:text-background transition-colors">
+                {SITE_CONFIG.phone}
               </a>
-              <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-2 hover:text-background transition-colors">
-                <Mail size={14} /> {SITE_CONFIG.email}
+              <a href={`mailto:${SITE_CONFIG.email}`} className="block hover:text-background transition-colors">
+                {SITE_CONFIG.email}
               </a>
               <a
                 href={SITE_CONFIG.telegramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-background transition-colors"
+                className="block hover:text-background transition-colors"
               >
-                <Send size={14} /> Telegram
+                Telegram
               </a>
             </div>
             <div>
