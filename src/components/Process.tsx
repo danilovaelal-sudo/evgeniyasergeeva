@@ -1,4 +1,4 @@
-import { RevealSection } from "@/hooks/useScrollReveal";
+import { RevealSection, RevealItem } from "@/hooks/useScrollReveal";
 
 const STEPS = [
   {
@@ -31,20 +31,24 @@ const Process = () => {
             Простой и понятный путь к первой консультации
           </p>
         </div>
+      </RevealSection>
+      <div className="container">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {STEPS.map((step, i) => (
-            <div key={i} className="relative text-center">
-              <span className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-secondary/10 text-secondary font-bold text-sm mb-3 sm:mb-4">
-                {i + 1}
-              </span>
-              <h3 className="font-serif text-base sm:text-lg font-semibold text-foreground mb-1.5 sm:mb-2">
-                {step.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">{step.desc}</p>
-            </div>
+            <RevealItem key={i} variant="fade-up" delay={i * 150}>
+              <div className="relative text-center">
+                <span className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-secondary/10 text-secondary font-bold text-sm mb-3 sm:mb-4">
+                  {i + 1}
+                </span>
+                <h3 className="font-serif text-base sm:text-lg font-semibold text-foreground mb-1.5 sm:mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">{step.desc}</p>
+              </div>
+            </RevealItem>
           ))}
         </div>
-      </RevealSection>
+      </div>
     </section>
   );
 };

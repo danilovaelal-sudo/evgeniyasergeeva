@@ -1,5 +1,5 @@
 import { SITE_CONFIG } from "@/lib/config";
-import { RevealSection } from "@/hooks/useScrollReveal";
+import { RevealSection, RevealItem } from "@/hooks/useScrollReveal";
 
 const SERVICES = [
   {
@@ -38,40 +38,41 @@ const Services = () => {
             Выберите подходящий формат работы
           </p>
         </div>
+      </RevealSection>
+      <div className="container relative z-10">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {SERVICES.map((s, i) => (
-            <div
-              key={i}
-              className="bg-card rounded-2xl border border-border p-5 sm:p-6 md:p-8 flex flex-col card-hover"
-            >
-              <h3 className="font-serif text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">{s.title}</h3>
-              <p className="text-sm text-foreground/80 leading-relaxed mb-3 sm:mb-4">{s.desc}</p>
-              <p className="text-sm font-medium text-secondary mb-3 sm:mb-4">{s.forWhom}</p>
-              <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
-                {s.benefits.map((b, j) => (
-                  <li key={j} className="text-sm text-foreground/70 leading-relaxed flex items-start gap-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-auto">
-                <p className="text-sm sm:text-base font-semibold text-foreground mb-3 sm:mb-4">
-                  {s.price ? s.price : "Стоимость уточняется при записи"}
-                </p>
-                <a
-                  href={SITE_CONFIG.telegramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-center py-2.5 sm:py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:brightness-105 transition-all"
-                >
-                  Записаться
-                </a>
+            <RevealItem key={i} variant="fade-up" delay={i * 120}>
+              <div className="bg-card rounded-2xl border border-border p-5 sm:p-6 md:p-8 flex flex-col card-hover h-full">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">{s.title}</h3>
+                <p className="text-sm text-foreground/80 leading-relaxed mb-3 sm:mb-4">{s.desc}</p>
+                <p className="text-sm font-medium text-secondary mb-3 sm:mb-4">{s.forWhom}</p>
+                <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
+                  {s.benefits.map((b, j) => (
+                    <li key={j} className="text-sm text-foreground/70 leading-relaxed flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto">
+                  <p className="text-sm sm:text-base font-semibold text-foreground mb-3 sm:mb-4">
+                    {s.price ? s.price : "Стоимость уточняется при записи"}
+                  </p>
+                  <a
+                    href={SITE_CONFIG.telegramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-center py-2.5 sm:py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:brightness-105 transition-all"
+                  >
+                    Записаться
+                  </a>
+                </div>
               </div>
-            </div>
+            </RevealItem>
           ))}
         </div>
-      </RevealSection>
+      </div>
     </section>
   );
 };
