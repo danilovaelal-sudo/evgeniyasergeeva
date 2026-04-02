@@ -36,7 +36,7 @@ const Hero = () => {
             </p>
             <p className="text-base md:text-xl text-muted-foreground leading-relaxed mb-6 md:mb-8 max-w-lg">
               Помогаю справиться с последствиями травмы, тревогой, внутренним напряжением
-              и вернуть ощущение опоры — бережно и в вашем темпе.
+              и вернуть ощущение опоры — бережно и в вашем темпе. Онлайн и очно в Москве.
             </p>
             <a
               href={SITE_CONFIG.telegramUrl}
