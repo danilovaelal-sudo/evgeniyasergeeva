@@ -17,36 +17,36 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 relative overflow-hidden">
+    <section id="contact" className="py-14 md:py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-hero" />
       <RevealSection className="container relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-3 md:mb-4">
             Запишитесь на консультацию
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-lg">
+          <p className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg">
             Первый шаг — самый важный. Напишите мне, и мы найдём удобное время для встречи.
           </p>
         </div>
 
         <div className="max-w-lg mx-auto">
-          <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
+          <div className="bg-card rounded-2xl border border-border p-5 sm:p-6 md:p-8">
             {submitted ? (
-              <div className="text-center py-8">
-                <h3 className="font-serif text-xl font-bold text-foreground mb-2">Заявка отправлена</h3>
+              <div className="text-center py-6 sm:py-8">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-foreground mb-2">Заявка отправлена</h3>
                 <p className="text-muted-foreground text-sm">
                   Спасибо! Для быстрого ответа напишите мне в Telegram.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1 block">Имя</label>
                   <input
                     type="text"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="w-full rounded-lg border border-input bg-background px-3 sm:px-4 py-2.5 sm:py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     placeholder="Ваше имя"
                   />
                 </div>
@@ -56,7 +56,7 @@ const Contact = () => {
                     type="text"
                     value={form.contact}
                     onChange={(e) => setForm({ ...form, contact: e.target.value })}
-                    className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="w-full rounded-lg border border-input bg-background px-3 sm:px-4 py-2.5 sm:py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     placeholder="Telegram, телефон или email"
                   />
                 </div>
@@ -66,7 +66,7 @@ const Contact = () => {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     rows={3}
-                    className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+                    className="w-full rounded-lg border border-input bg-background px-3 sm:px-4 py-2.5 sm:py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
                     placeholder="Кратко опишите, с чем вы хотели бы работать (необязательно)"
                   />
                 </div>
@@ -85,7 +85,7 @@ const Contact = () => {
                 {error && <p className="text-sm text-destructive">{error}</p>}
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:brightness-105 transition-all"
+                  className="w-full py-2.5 sm:py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:brightness-105 transition-all"
                 >
                   Отправить заявку
                 </button>
