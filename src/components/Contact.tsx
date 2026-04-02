@@ -79,7 +79,7 @@ const Contact = () => {
                   />
                   <span>
                     Я согласен(на) на обработку персональных данных в соответствии с{" "}
-                    <a href="#privacy" className="underline hover:text-foreground">политикой конфиденциальности</a>
+                    <a href="/privacy" className="underline hover:text-foreground">политикой конфиденциальности</a>
                   </span>
                 </label>
                 {error && <p className="text-sm text-destructive">{error}</p>}
