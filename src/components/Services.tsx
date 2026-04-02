@@ -72,6 +72,29 @@ const Services = () => {
             </RevealItem>
           ))}
         </div>
+
+        <RevealItem variant="fade-up" delay={400}>
+          <div className="mt-8 md:mt-10 bg-card rounded-2xl border border-border p-5 sm:p-6 md:p-8">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+              <div className="flex-1">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-foreground mb-2">
+                  Очные консультации в Москве
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Помимо онлайн-формата, я провожу очные встречи в кабинетах в центре Москвы — рядом с метро Белорусская, Краснопресненская и в пределах Кольцевой линии. Выберите удобный для вас формат при записи.
+                </p>
+              </div>
+              <a
+                href={SITE_CONFIG.telegramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 inline-flex items-center justify-center px-6 py-3 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:brightness-105 transition-all"
+              >
+                Записаться очно
+              </a>
+            </div>
+          </div>
+        </RevealItem>
       </div>
     </section>
   );
