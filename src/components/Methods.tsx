@@ -25,23 +25,23 @@ const METHODS = [
 
 const Methods = () => {
   return (
-    <section id="methods" className="py-20 md:py-28 bg-card">
+    <section id="methods" className="py-14 md:py-28 bg-card">
       <RevealSection className="container">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+        <div className="text-center mb-10 md:mb-14">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-3 md:mb-4">
             Методы терапии
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg">
             Подходы, которые я использую в работе
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {METHODS.map((m, i) => (
             <div
               key={i}
-              className="rounded-xl border border-border p-6 card-hover bg-background"
+              className="rounded-xl border border-border p-5 sm:p-6 card-hover bg-background"
             >
-              <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
+              <h3 className="font-serif text-base sm:text-lg font-semibold text-foreground mb-2">
                 {m.title}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">

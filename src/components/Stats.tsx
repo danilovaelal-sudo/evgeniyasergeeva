@@ -49,16 +49,16 @@ const AnimatedNumber = ({ value, suffix }: { value: number; suffix: string }) =>
 
 const Stats = () => {
   return (
-    <section className="py-16 md:py-20 relative overflow-hidden">
+    <section className="py-12 md:py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-cta opacity-10" />
       <RevealSection className="container relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-10">
           {STATS.map((stat, i) => (
             <div key={i} className="text-center">
-              <div className="text-3xl md:text-5xl font-serif font-bold text-foreground mb-2">
+              <div className="text-2xl sm:text-3xl md:text-5xl font-serif font-bold text-foreground mb-1 md:mb-2">
                 <AnimatedNumber value={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="text-sm md:text-base text-muted-foreground">{stat.label}</p>
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">{stat.label}</p>
             </div>
           ))}
         </div>

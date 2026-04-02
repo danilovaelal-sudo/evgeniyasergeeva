@@ -16,11 +16,11 @@ const LegalModal = ({
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-foreground/40 backdrop-blur-sm" onClick={onClose}>
       <div
-        className="bg-card rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 md:p-8 shadow-2xl"
+        className="bg-card rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-5 sm:p-6 md:p-8 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="font-serif text-xl font-bold text-foreground">{title}</h3>
+        <div className="flex items-center justify-between mb-4 sm:mb-6">
+          <h3 className="font-serif text-lg sm:text-xl font-bold text-foreground">{title}</h3>
           <button onClick={onClose} className="text-muted-foreground hover:text-foreground text-2xl leading-none">&times;</button>
         </div>
         <div className="prose prose-sm max-w-none text-muted-foreground">{children}</div>
@@ -34,11 +34,11 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-foreground text-background/80 py-12">
+      <footer className="bg-foreground text-background/80 py-10 md:py-12">
         <div className="container">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             <div>
-              <h4 className="font-serif text-lg font-bold text-background mb-2">{SITE_CONFIG.name}</h4>
+              <h4 className="font-serif text-base sm:text-lg font-bold text-background mb-2">{SITE_CONFIG.name}</h4>
               <p className="text-sm text-background/60">{SITE_CONFIG.title}</p>
             </div>
             <div className="space-y-2 text-sm">
@@ -57,7 +57,7 @@ const Footer = () => {
                 Telegram
               </a>
             </div>
-            <div>
+            <div className="sm:col-span-2 md:col-span-1">
               <a
                 href={SITE_CONFIG.telegramUrl}
                 target="_blank"
@@ -68,9 +68,9 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div className="mt-8 pt-6 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-background/40">
+          <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-background/10 flex flex-col items-center gap-3 text-xs text-background/40">
             <p>© {new Date().getFullYear()} {SITE_CONFIG.name}. Все права защищены.</p>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
               <button onClick={() => setModal("privacy")} className="hover:text-background/70 transition-colors">Политика конфиденциальности</button>
               <button onClick={() => setModal("consent")} className="hover:text-background/70 transition-colors">Согласие на обработку данных</button>
               <button onClick={() => setModal("terms")} className="hover:text-background/70 transition-colors">Пользовательское соглашение</button>
