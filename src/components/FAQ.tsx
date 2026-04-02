@@ -43,10 +43,10 @@ const FAQ_ITEMS = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-20 md:py-28 bg-card">
+    <section id="faq" className="py-14 md:py-28 bg-card">
       <RevealSection className="container">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+        <div className="text-center mb-10 md:mb-14">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-3 md:mb-4">
             Частые вопросы
           </h2>
         </div>
@@ -54,10 +54,10 @@ const FAQ = () => {
           <Accordion type="single" collapsible>
             {FAQ_ITEMS.map((item, i) => (
               <AccordionItem key={i} value={`faq-${i}`}>
-                <AccordionTrigger className="text-left font-medium text-foreground">
+                <AccordionTrigger className="text-left font-medium text-foreground text-sm sm:text-base">
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
+                <AccordionContent className="text-muted-foreground leading-relaxed text-sm">
                   {item.a}
                 </AccordionContent>
               </AccordionItem>

@@ -1,4 +1,4 @@
-import { RevealSection } from "@/hooks/useScrollReveal";
+import { RevealSection, RevealItem } from "@/hooks/useScrollReveal";
 
 const METHODS = [
   {
@@ -35,22 +35,23 @@ const Methods = () => {
             Подходы, которые я использую в работе
           </p>
         </div>
+      </RevealSection>
+      <div className="container">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {METHODS.map((m, i) => (
-            <div
-              key={i}
-              className="rounded-xl border border-border p-5 sm:p-6 card-hover bg-background"
-            >
-              <h3 className="font-serif text-base sm:text-lg font-semibold text-foreground mb-2">
-                {m.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {m.desc}
-              </p>
-            </div>
+            <RevealItem key={i} variant="scale" delay={i * 100}>
+              <div className="rounded-xl border border-border p-5 sm:p-6 card-hover bg-background h-full">
+                <h3 className="font-serif text-base sm:text-lg font-semibold text-foreground mb-2">
+                  {m.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {m.desc}
+                </p>
+              </div>
+            </RevealItem>
           ))}
         </div>
-      </RevealSection>
+      </div>
     </section>
   );
 };
