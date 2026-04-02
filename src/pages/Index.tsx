@@ -10,6 +10,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import TestPopup from "@/components/TestPopup";
 
 const Index = () => {
   return (
@@ -26,6 +27,7 @@ const Index = () => {
       <FAQ />
       <Contact />
       <Footer />
+      <TestPopup />
     </div>
   );
 };
