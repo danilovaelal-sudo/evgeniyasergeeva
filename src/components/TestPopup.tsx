@@ -76,13 +76,25 @@ function getResult(score: number): Result {
   };
 }
 
-const TestPopup = () => {
+const TestPopup = ({ externalOpen, onExternalClose }: { externalOpen?: boolean; onExternalClose?: () => void }) => {
   const [visible, setVisible] = useState(false);
   const [started, setStarted] = useState(false);
   const [currentQ, setCurrentQ] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [finished, setFinished] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+
+  // Handle external open
+  useEffect(() => {
+    if (externalOpen) {
+      setVisible(true);
+      setStarted(false);
+      setCurrentQ(0);
+      setAnswers([]);
+      setFinished(false);
+      setDismissed(false);
+    }
+  }, [externalOpen]);
 
   useEffect(() => {
     const alreadyShown = sessionStorage.getItem("test-popup-shown");
@@ -127,6 +139,7 @@ const TestPopup = () => {
   const handleClose = () => {
     setVisible(false);
     setDismissed(true);
+    onExternalClose?.();
   };
 
   const score = answers.reduce((sum, a) => sum + a, 0);
