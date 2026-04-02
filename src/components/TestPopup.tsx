@@ -139,6 +139,7 @@ const TestPopup = ({ externalOpen, onExternalClose }: { externalOpen?: boolean; 
   const handleClose = () => {
     setVisible(false);
     setDismissed(true);
+    onExternalClose?.();
   };
 
   const score = answers.reduce((sum, a) => sum + a, 0);
